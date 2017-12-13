@@ -1,0 +1,49 @@
+<!--time ago CDN! -->
+<script src="http://timeago.yarp.com/jquery.timeago.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("ad")
+        $(".timeago").timeago();
+    });
+    jQuery.timeago.settings.allowFuture = true;
+</script>
+
+<div class="container"><br>
+    <div class="jumbotron">
+        <h1>@ViewBag.auction.ProductName</h1>
+        <p>Created by: @ViewBag.auction.User.FirstName</p>
+        <p>Time Remaining: <span class="timeago" title="@ViewBag.auction.EndDate">(@ViewBag.auction.EndDate)</span></p> <!--time ago jquery! -->
+        <p>@ViewBag.auction.Description</p><br>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <td>Current Highest Bid</td>
+                <td>By</td>
+            </thead>
+            <tr>
+                @if(ViewBag.highestbid != null){
+                    <td>$@ViewBag.highestbid.Amount</td>
+                    <td>@ViewBag.highestbid.User.FirstName @ViewBag.highestbid.User.LastName</td>
+                }
+                else{
+                    <td>$@ViewBag.auction.StartingBid (Starting Bid)</td>
+                    <td>No one has bid yet!</td>
+                }
+            </tr>
+        </table><br><hr><br>
+         @if(DateTime.Now >= @ViewBag.auction.EndDate){
+             <p>The auction has ended! No more bidding :)</p>
+         }
+         else{
+             @model csharpbelt.Models.AddBid
+            <form asp-action="NewBid" method="post">
+                <input type="hidden" name="AuctionId" value="@ViewBag.auction.AuctionId">
+                <label asp-for="Amount"></label>
+                <input asp-for="Amount" class="form-control" placeholder="Your bid goes here!">
+                <span asp-validation-for="Amount" class="text-danger"></span> @ViewBag.error
+                <br>
+                <input class="btn btn-success" type="submit" value="Bid!">
+            </form>
+         }
+        
+    </div>
+</div>

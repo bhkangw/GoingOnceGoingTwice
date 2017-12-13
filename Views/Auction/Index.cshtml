@@ -1,0 +1,53 @@
+<!--time ago CDN! -->
+<script src="http://timeago.yarp.com/jquery.timeago.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("ad")
+        $(".timeago").timeago();
+    });
+    jQuery.timeago.settings.allowFuture = true;
+</script>
+
+<div class="container"><br>
+    <div class="jumbotron">
+        <h2>Hi @ViewBag.UserInfo.FirstName!</h2>
+        <h1>Current Auctions</h1>
+    </div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <td>Product</td>
+            <td>Seller</td>
+            <td>Top Bid</td>
+            <td>Time Remaining</td>
+            <td>Action</td>
+            <!-- <td>Action</td> -->
+        </thead>
+
+        @foreach(var a in ViewBag.auctions){
+            if(a.Resolved == false){ <!-- remove auction if it has ended -->
+            <tr>
+            <td><a href="auction/@a.AuctionId">@a.ProductName</a></td>
+            <td>@a.User.FirstName @a.User.LastName</td>
+            <!-- foreach (KeyValuePair<int, double> ax in ViewBag.highestbids)
+            { -->
+                <td>$</td>
+            <!-- } -->
+            
+            <td><span class="timeago" title="@a.EndDate">(@a.EndDate)</span> <!--time ago jquery! --></td>
+            @if(a.UserId == ViewBag.UserInfo.UserId){
+            <td>
+                <form action="deleteauction" method="post">
+                    <input type="hidden" name="AuctionId" value="@a.AuctionId">
+                    <input class="btn-xs btn-danger" type="submit" value="Delete">
+                </form>
+            </td>
+            }
+        </tr>
+        }
+            }
+
+    </table>
+    <a class="btn btn-primary" href="newauction">New Auction</a>
+    <h1>Your Current Wallet: $@ViewBag.UserInfo.Wallet</h1>
+    <p>(Available for bidding: $@(ViewBag.UserInfo.Wallet-ViewBag.UserInfo.HeldAmount))</p>
+</div>

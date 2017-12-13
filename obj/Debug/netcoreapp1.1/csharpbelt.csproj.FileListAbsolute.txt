@@ -1,0 +1,9 @@
+/Users/bkila/Desktop/csharpbelt/bin/Debug/netcoreapp1.1/csharpbelt.deps.json
+/Users/bkila/Desktop/csharpbelt/bin/Debug/netcoreapp1.1/csharpbelt.runtimeconfig.json
+/Users/bkila/Desktop/csharpbelt/bin/Debug/netcoreapp1.1/csharpbelt.runtimeconfig.dev.json
+/Users/bkila/Desktop/csharpbelt/bin/Debug/netcoreapp1.1/csharpbelt.dll
+/Users/bkila/Desktop/csharpbelt/bin/Debug/netcoreapp1.1/csharpbelt.pdb
+/Users/bkila/Desktop/csharpbelt/obj/Debug/netcoreapp1.1/csharpbelt.csproj.CoreCompileInputs.cache
+/Users/bkila/Desktop/csharpbelt/obj/Debug/netcoreapp1.1/csharpbelt.AssemblyInfo.cs
+/Users/bkila/Desktop/csharpbelt/obj/Debug/netcoreapp1.1/csharpbelt.dll
+/Users/bkila/Desktop/csharpbelt/obj/Debug/netcoreapp1.1/csharpbelt.pdb

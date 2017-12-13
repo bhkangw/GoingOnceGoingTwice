@@ -1,0 +1,27 @@
+@model csharpbelt.Models.AddAuction
+
+<div class="container"><br>
+    <div class="jumbotron">
+        <h1>New Auction</h1>
+
+        <form action="addauction" method="post">
+        <label asp-for="ProductName"></label>
+        <input asp-for="ProductName" class="form-control" placeholder="Item Name">
+        <span asp-validation-for="ProductName" class="text-danger"></span><br>
+
+        <label asp-for="StartingBid"></label>
+        <input asp-for="StartingBid" class="form-control" placeholder="$0.01 or higher">
+        <span asp-validation-for="StartingBid" class="text-danger"></span><br>
+
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" cols="30" rows="3" class="form-control" placeholder="Required"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span><br>
+
+        <label asp-for="EndDate"></label>
+        <input type="date" asp-for="EndDate" class="form-control">
+        <span asp-validation-for="EndDate" class="text-danger"></span><br>
+
+        <input class="btn btn-primary" type="submit" value="Create Auction">
+        </form>
+    </div>
+</div>
