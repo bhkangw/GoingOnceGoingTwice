@@ -13,6 +13,7 @@ namespace csharpbelt.Models
         public User User { get; set; } // User objects created along with the foreign key
         public int AuctionId { get; set; } // foreign key goes in the multiple side of a one to many
         public Auction Auction { get; set; } // Auction objects created along with the foreign key
+        // public Auction Highest { get; set; } // Auction objects created along with the foreign key
         public double Amount { get; set; }
         public Boolean HighestBid { get; set; }
     }
